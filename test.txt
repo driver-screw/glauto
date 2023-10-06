@@ -1,5 +1,7 @@
 class test{
-	psvm{
+	test1{
 		test();
 	}
+	test2{
+	assert true;
 }
