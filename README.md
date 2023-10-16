@@ -3,16 +3,15 @@ This framework is designed in order to perform tests for github using UI and API
 
 ## Framework structure
 ### Test Config module
-Place your config here: *src/test/<APP_NAME>/resources*  
-Github app example: *src/test/github/resources/test.properties*
+Place your config here: *src/test/resources*
 
 ### Test  module
-API tests :*src/test/<APP_NAME>/java/api*  
-UI tests :*src/test/<APP_NAME>/java/ui*
+API tests :*src/test/java/api*  
+UI tests :*src/test/ui*
 ### Application Config module
-Config and resources location for test framework: *src/main/<APP_NAME>/resources*
+Config and resources location for test framework: *src/main/resources*
 ### Application module
-API: *src/main/<APP_NAME>/java/api*  
-UI: *src/main/<APP_NAME>/java/ui*
+API: *src/main/java/api*  
+UI: *src/main/java/ui*
 
 
