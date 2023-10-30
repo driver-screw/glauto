@@ -9,6 +9,7 @@ public class DummyApiClient {
     private static final Logger logger = LoggerFactory.getLogger(DummyApiClient.class);
 
     public static void main(String[] args) {
+        // https://resttesttest.com/
         String url = "https://httpbin.org/get";
         logger.debug("{} {}", "GET", url);
         String print = RestAssured.given()

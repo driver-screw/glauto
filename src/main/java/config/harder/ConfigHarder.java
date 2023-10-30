@@ -9,7 +9,8 @@ public class ConfigHarder {
     private static final List<String> propertyNameList = Arrays.asList(
             "timeout",
             "user.name",
-            "base_url"
+            "base_url",
+            "github_base_url"
     );
 
     static {
