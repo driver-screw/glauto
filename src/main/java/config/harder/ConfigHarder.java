@@ -1,8 +1,17 @@
 package config.harder;
 
+import config.harder.configproviders.IPropertyProvider;
+import config.harder.configproviders.JSONPropertiesProvider;
+import config.harder.configproviders.PropertiesProvider;
+import config.harder.configproviders.SystemPropertiesProvider;
+import config.harder.exceptions.PropertyNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 
 public class ConfigHarder {
+    private static final Logger logger = LoggerFactory.getLogger(ConfigHarder.class);
     private static final Map<String, String> prop = new HashMap<>();
     private static final List<IPropertyProvider> propertiesProviderList = Arrays.asList(PropertiesProvider.getInstance()
             , JSONPropertiesProvider.getInstance(), SystemPropertiesProvider.getInstance());
@@ -18,8 +27,10 @@ public class ConfigHarder {
             Iterator<IPropertyProvider> iterator = propertiesProviderList.iterator();
             String value = "";
             while (iterator.hasNext()) {
-                value = iterator.next().getProperty(key);
+                IPropertyProvider propertyProvider = iterator.next();
+                value = propertyProvider.getProperty(key);
                 if (value != null && !(value.isEmpty())) {
+                    logger.info("{} are get from {}",key, propertyProvider.getClass().getSimpleName());
                     prop.put(key, value);
                     break;
                 }

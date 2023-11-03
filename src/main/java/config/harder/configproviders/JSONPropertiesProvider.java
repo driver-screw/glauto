@@ -1,4 +1,4 @@
-package config.harder;
+package config.harder.configproviders;
 
 
 import com.google.gson.JsonObject;
@@ -25,7 +25,7 @@ public class JSONPropertiesProvider implements IPropertyProvider {
     }
 
     {
-        String rootResourcesPath = Objects.requireNonNull(PropertiesProvider.class.getResource("")).getPath();
+        String rootResourcesPath = Objects.requireNonNull(PropertiesProvider.class.getResource("../")).getPath();
         System.out.println(rootResourcesPath);
         String configPath = rootResourcesPath + "config.json";
         try {
@@ -33,7 +33,7 @@ public class JSONPropertiesProvider implements IPropertyProvider {
             logger.debug("Properties loaded");
 
         } catch (IOException e) {
-            logger.error("Properties NOT loaded", e);
+            logger.error("Properties not loaded", e);
             throw new RuntimeException(e);
 
         }
@@ -41,10 +41,6 @@ public class JSONPropertiesProvider implements IPropertyProvider {
 
     @Override
     public String getProperty(String propName) {
-        String value = Optional.ofNullable(jsonObject.get(propName)).orElse(new JsonPrimitive("")).getAsString();
-        if (!value.isEmpty()) {
-            logger.info("Property \"{}\" = \"{}\"", propName, value);
-        }
-        return value;
+        return Optional.ofNullable(jsonObject.get(propName)).orElse(new JsonPrimitive("")).getAsString();
     }
 }

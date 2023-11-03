@@ -1,7 +1,0 @@
-class test{
-	test1{
-		test();
-	}
-	test2{
-	assert true;
-}

@@ -1,4 +1,4 @@
-package config.harder;
+package config.harder.configproviders;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,11 +9,7 @@ public class SystemPropertiesProvider implements IPropertyProvider {
 
     @Override
     public String getProperty(String propName) {
-        String value = System.getProperty(propName);
-        if (value != null) {
-            logger.info("Property \"{}\" = \"{}\"", propName, value);
-        }
-        return value;
+        return System.getProperty(propName);
     }
 
     public static IPropertyProvider getInstance() {

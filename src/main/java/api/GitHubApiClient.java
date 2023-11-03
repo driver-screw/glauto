@@ -25,6 +25,9 @@ public class GitHubApiClient {
         requestSpec = builder.build();
     }
 
+    /**
+     * Only for positive scenarios
+     */
     public JsonPath searchRepos(String repoName) {
 
         logger.info("Getting repo '{}'", repoName);
@@ -42,6 +45,9 @@ public class GitHubApiClient {
         return response;
     }
 
+    /**
+     * Only for positive scenarios
+     */
     public JsonPath searchCommit(String commit) {
 
         logger.info("Getting commit '{}'", commit);

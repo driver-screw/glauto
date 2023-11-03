@@ -1,4 +1,4 @@
-package config.harder;
+package config.harder.configproviders;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,24 +23,20 @@ public class PropertiesProvider implements IPropertyProvider {
     }
 
     {
-        String rootResourcesPath = Objects.requireNonNull(PropertiesProvider.class.getResource("")).getPath();
+        String rootResourcesPath = Objects.requireNonNull(PropertiesProvider.class.getResource("../")).getPath();
         System.out.println(rootResourcesPath);
         String configPath = rootResourcesPath + "config.properties";
         try {
             prop.load(new FileInputStream(configPath));
             logger.debug("Properties loaded");
         } catch (IOException e) {
-            logger.error("Properties NOT loaded", e);
+            logger.error("Properties not loaded", e);
             throw new RuntimeException(e);
         }
     }
 
     @Override
     public String getProperty(String propName) {
-        String value = prop.getProperty(propName);
-        if (value != null) {
-            logger.info("Property \"{}\" = \"{}\"", propName, value);
-        }
-        return value;
+        return prop.getProperty(propName);
     }
 }

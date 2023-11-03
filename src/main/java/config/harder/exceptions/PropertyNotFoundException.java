@@ -1,4 +1,4 @@
-package config.harder;
+package config.harder.exceptions;
 
 public class PropertyNotFoundException extends RuntimeException {
 
