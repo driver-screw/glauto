@@ -58,6 +58,14 @@
             <artifactId>junit-jupiter</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
